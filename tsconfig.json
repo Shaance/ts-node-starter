@@ -9,7 +9,7 @@
     "noUnusedParameters": true,
     "sourceMap": true,
     "module": "commonjs",
-    "target": "es2017",
+    "target": "es2019",
     "outDir": "lib",
     "esModuleInterop": true
   },
