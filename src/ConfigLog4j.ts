@@ -1,8 +1,15 @@
-import {
-  LoggerFactoryOptions, LFService, LogGroupRule, LogLevel,
-} from 'typescript-logging';
+import { LogLevel } from 'typescript-logging';
+import {Log4TSProvider, Logger} from "typescript-logging-log4ts-style";
 
-const options = new LoggerFactoryOptions()
-  .addLogGroupRule(new LogGroupRule(new RegExp('.+'), LogLevel.Info));
+const provider = Log4TSProvider.createProvider("Provider", {
+  groups: [{
+    expression: new RegExp(".+"),
+    level: LogLevel.Info
+  }],
+});
 
-export default LFService.createNamedLoggerFactory('LoggerFactory', options);
+const getLogger = (name: string): Logger => {
+  return provider.getLogger(name);
+}
+
+export default getLogger;

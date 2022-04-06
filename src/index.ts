@@ -1,6 +1,6 @@
-import factory from './ConfigLog4j';
+import getLogger from './ConfigLog4j';
 
-const logger = factory.getLogger('main');
+const logger = getLogger("main");
 
 export function main() {
   logger.info('Hello world!');
